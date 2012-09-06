@@ -15,6 +15,33 @@
     @synthesize type;
     @synthesize x;
     @synthesize y;
+    
+//MKAnnotation
+-(NSString*)title
+{
+    return [note copy];
+}
+
+-(NSString*)subtitle
+{
+    return @"Subtitle";
+}
+
+-(CLLocationCoordinate2D) coordinate
+{
+    CLLocationCoordinate2D loc;
+    loc.longitude = self.x;
+    loc.latitude = self.y;
+    return loc;
+}
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
+{
+    self.x = newCoordinate.longitude;
+    self.y = newCoordinate.latitude;
+}
+
+//MKAnnotation end
+
 
 -(NSString*) toJSON;
 {

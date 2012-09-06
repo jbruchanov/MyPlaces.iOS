@@ -12,7 +12,7 @@
 
 @interface ServerConnection : NSObject
 
--(NSArray*)getStars;
+-(NSArray*)arrayWithStars;
 -(NSArray*)getMapItems;
 -(MapItem*)getMapItemById:(long long)id;
 -(NSArray*)getMapItemsWithX1:(double)x1 AndY1:(double)y1 AndX2:(double)x2 AndY2:(double)y2;

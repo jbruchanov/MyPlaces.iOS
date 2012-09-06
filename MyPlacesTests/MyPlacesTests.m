@@ -31,7 +31,7 @@
 - (void)testGetStars
 {
     ServerConnection *sc = [[ServerConnection alloc] init];
-    NSArray *stars = [[sc getStars] retain];
+    NSArray *stars = [[sc arrayWithStars] retain];
     STAssertTrue([stars count] > 0, @"Size of arr");
     
     for (Star *s in stars) {

@@ -7,14 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface Star : NSObject
+@interface Star : NSObject <MKAnnotation>
 
     @property long long ID;
     @property (retain, nonatomic) NSString *note;
     @property (retain, nonatomic) NSString *type;
     @property double x;
     @property double y;
+
+
+//MKAnnotation
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic, readonly, copy) NSString *subtitle;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
+//MKAnnotation end
 
 -(NSString*) toJSON;
 -(NSData*) toJSONData;

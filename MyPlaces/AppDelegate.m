@@ -12,6 +12,8 @@
 
 @implementation AppDelegate
 
+@synthesize serverConnection;
+
 - (void)dealloc
 {
     [_window release];
@@ -19,9 +21,16 @@
     [super dealloc];
 }
 
+-(void)initRefs
+{
+    self.serverConnection = [[ServerConnection alloc]init];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    [self initRefs];
+    
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
@@ -30,6 +39,8 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
@@ -58,6 +69,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self.serverConnection release];
 }
 
 @end

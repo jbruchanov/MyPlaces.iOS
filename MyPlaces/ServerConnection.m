@@ -36,7 +36,7 @@ NSDateFormatter *dateFormatter;
     }
     return self;
 }
--(NSArray*) getStars
+-(NSArray*) arrayWithStars
 {
     NSArray *result = nil;
     
@@ -69,7 +69,7 @@ NSDateFormatter *dateFormatter;
             [mresult addObject:s];
             [s release];
         }
-        result = [NSArray arrayWithArray:mresult];
+        result = [[NSArray arrayWithArray:mresult] autorelease];
         [mresult release];
     }
     return result;
